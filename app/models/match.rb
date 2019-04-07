@@ -60,4 +60,34 @@ class Match < ApplicationRecord
       "Lost"
     end
   end
+
+  def destroy_and_update_record
+    # need to use helper methods here. would be great if I could have access to the update_user_record method currently in MatchesController
+  end
+
+  def add_to_user_record
+    if self.won
+      self.tournament.user.add_win
+    else
+      self.tournament.user.add_loss
+    end
+  end
+
+  def remove_from_user_record
+    if self.won
+      self.tournament.user.remove_win
+    else
+      self.tournament.user.remove_loss
+    end
+  end
+
+  def update_user_record
+    if self.won
+      self.tournament.user.add_win
+      self.tournament.user.remove_loss
+    else
+      self.tournament.user.add_loss
+      self.tournament.user.remove_win
+    end
+  end
 end

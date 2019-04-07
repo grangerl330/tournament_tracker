@@ -15,4 +15,24 @@ class User < ApplicationRecord
     "#{self.match_wins} - #{self.match_losses}"
   end
 
+  def add_win
+    self.match_wins += 1
+    self.save
+  end
+
+  def add_loss
+    self.match_losses += 1
+    self.save
+  end
+
+  def remove_win
+    self.match_wins -= 1
+    self.save
+  end
+
+  def remove_loss
+    self.match_losses -= 1
+    self.save
+  end
+
 end
