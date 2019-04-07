@@ -36,12 +36,12 @@ class Tournament < ApplicationRecord
       "Won"
     else
       self.update(won: false)
-      "Lost in #{@losing_match.round_num_or_name}"
+      "Lost in #{losing_match.round_num_or_name}"
     end
   end
 
   def losing_match
-    @losing_match ||= self.matches.find {|match| match.won == false}
+    losing_match ||= self.matches.find {|match| match.won == false}
   end
 
   def in_progress?

@@ -23,8 +23,9 @@ class MatchesController < ApplicationController
     @opponent = @match.opponent
   end
 
-  def update 
+  def update
     @match.update(match_params)
+    update_user_record
     redirect_to match_path(@match)
   end
 
@@ -78,6 +79,16 @@ class MatchesController < ApplicationController
       remove_win_from_user
     else
       remove_loss_from_user
+    end
+  end
+
+  def update_user_record
+    if @match.won
+      add_win_to_user
+      remove_loss_from_user
+    else
+      add_loss_to_user
+      remove_win_from_user
     end
   end
 
