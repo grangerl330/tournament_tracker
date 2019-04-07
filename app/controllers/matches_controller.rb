@@ -2,6 +2,7 @@ class MatchesController < ApplicationController
   before_action :require_login
   before_action :set_match, only: [:show, :edit, :update, :destroy]
   before_action :convert_params_round_to_number, only: [:create, :update]
+  before_action :set_tournaments, only: [:new, :edit]
 
   def new
     @match = Match.new
@@ -44,6 +45,10 @@ class MatchesController < ApplicationController
 
   def set_match
     @match = Match.find(params[:id])
+  end
+
+  def set_tournaments
+    @tournaments = Tournament.all
   end
 
   def convert_params_round_to_number

@@ -9,7 +9,7 @@
   </p>
   <p>
     <%= f.label "Tournament" %>
-    <%= f.collection_select(:tournament_id, Tournament.all, :id, :title, {selected: @tournament.id}) %>
+    <%= f.collection_select(:tournament_id, @tournaments, :id, :title, {selected: @tournament.id}) %>
   </p>
   <p>
     <%= f.label "Round" %>
