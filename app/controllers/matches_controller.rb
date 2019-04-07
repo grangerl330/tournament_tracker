@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
   before_action :require_login
   before_action :set_match, only: [:show, :edit, :update, :destroy]
-  before_action :convert_params_round, only: [:create, :update]
+  before_action :convert_params_round_to_number, only: [:create, :update]
 
   def new
     @match = Match.new
@@ -46,7 +46,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
   end
 
-  def convert_params_round
+  def convert_params_round_to_number
     case params[:match][:round]
     when "Quarter-Final"
       params[:match][:round] = 8
