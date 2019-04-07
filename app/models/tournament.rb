@@ -38,6 +38,10 @@ class Tournament < ApplicationRecord
     convert_round_options
   end
 
+  def draw_size_options
+    [256, 128, 64, 32, 16, 8, 4, 2]
+  end
+
   def result
     if in_progress?
       "In Progress"
