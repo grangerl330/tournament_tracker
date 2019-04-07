@@ -18,7 +18,7 @@ class TournamentsController < ApplicationController
 
   def index
     if params[:user_id]
-      @tournaments = User.find(params[:user_id]).tournaments
+      @tournaments = tournaments_sorted_by_date
     end
   end
 
@@ -48,5 +48,10 @@ class TournamentsController < ApplicationController
 
   def set_tournament
     @tournament = Tournament.find_by_id(params[:id])
+  end
+
+  def tournaments_sorted_by_date
+    tournament_array = User.find(params[:user_id]).tournaments
+    tournament_array.sort_by {|tournament| tournament.start_date}
   end
 end
