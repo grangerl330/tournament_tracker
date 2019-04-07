@@ -4,27 +4,9 @@ class Match < ApplicationRecord
   accepts_nested_attributes_for :opponent
 
   def round_options
-    if self.tournament
-      starting_round = self.tournament.draw_size
-    end
-
-    if starting_round = nil || starting_round = 256
-      [256, 128, 64, 32, 16, 8, 4, 2]
-    elsif starting_round = 128
-      [128, 64, 32, 16, 8, 4, 2]
-    elsif starting_round = 64
-      [64, 32, 16, 8, 4, 2]
-    elsif starting_round = 32
-      [32, 16, 8, 4, 2]
-    elsif starting_round = 16
-      [16, 8, 4, 2]
-    elsif starting_round = 8
-      [8, 4, 2]
-    elsif starting_round = 4
-      [4, 2]
-    elsif starting_round = 2
-      [2]
-    end
+    options = [256, 128, 64, 32, 16, 8, 4, 2]
+    start_point = options.index(self.round)
+    options[start_point..-1]
   end
 
   def round_num_or_name
@@ -59,10 +41,6 @@ class Match < ApplicationRecord
     else
       "Lost"
     end
-  end
-
-  def destroy_and_update_record
-    # need to use helper methods here. would be great if I could have access to the update_user_record method currently in MatchesController
   end
 
   def add_to_user_record
