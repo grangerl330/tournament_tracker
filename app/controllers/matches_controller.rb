@@ -23,7 +23,7 @@ class MatchesController < ApplicationController
     @opponent = @match.opponent
   end
 
-  def update
+  def update 
     @match.update(match_params)
     redirect_to match_path(@match)
   end
