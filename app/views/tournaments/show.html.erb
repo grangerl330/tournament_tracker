@@ -13,3 +13,5 @@
 <% end %>
 
 <p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %></p>
+
+<p><p><%= link_to "Back To Tournaments", user_tournaments_path(current_user) %></p></p>
