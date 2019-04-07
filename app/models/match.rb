@@ -6,7 +6,24 @@ class Match < ApplicationRecord
   def round_options
     options = [256, 128, 64, 32, 16, 8, 4, 2]
     start_point = options.index(self.round)
-    options[start_point..-1]
+    @options = options[start_point..-1]
+    convert_round_options
+    @options
+  end
+
+  def convert_round_options
+    @options.map! do |option|
+      if option == 8
+        "Quarter-Final"
+      elsif option == 4
+        "Semi-Final"
+      elsif option == 2
+        "Final"
+      else
+        option
+      end
+    end
+    @options
   end
 
   def round_num_or_name
