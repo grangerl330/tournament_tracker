@@ -35,7 +35,7 @@ class TournamentsController < ApplicationController
 
   def destroy
     @tournament.remove_points_from_user
-    @tournament.matches.destroy_all
+    @tournament.destroy_all_matches
     @tournament.destroy
     redirect_to user_path(current_user)
   end

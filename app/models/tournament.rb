@@ -63,4 +63,11 @@ class Tournament < ApplicationRecord
       add_points_to_user
     end
   end
+
+  def destroy_all_matches
+    self.matches.each do |match|
+      match.remove_from_user_record
+      match.destroy
+    end
+  end
 end
