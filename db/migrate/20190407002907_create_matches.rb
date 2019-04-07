@@ -5,7 +5,6 @@ class CreateMatches < ActiveRecord::Migration[5.2]
       t.string :score
       t.boolean :won?
       t.integer :tournament_id
-      t.integer :user_id
 
       t.timestamps
     end
