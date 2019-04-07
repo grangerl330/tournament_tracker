@@ -40,11 +40,24 @@ class Match < ApplicationRecord
     end
   end
 
+  def select_default_round
+    case self.round
+    when 2
+      "Final"
+    when 4
+      "Semi-Final"
+    when 8
+      "Quarter-Final"
+    else
+      self.round
+    end
+  end
+
   def result
     if self.won
       "Won"
     else
       "Lost"
-    end 
+    end
   end
 end

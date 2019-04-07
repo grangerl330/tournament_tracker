@@ -41,7 +41,7 @@ class Tournament < ApplicationRecord
   end
 
   def losing_match
-    @losing_match = self.matches.find {|match| match.won == false}
+    @losing_match ||= self.matches.find {|match| match.won == false}
   end
 
   def in_progress?

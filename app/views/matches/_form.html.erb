@@ -13,7 +13,7 @@
   </p>
   <p>
     <%= f.label "Round" %>
-    <%= f.select :round, @tournament.round_options %>
+    <%= f.select :round, @tournament.round_options, selected: @match.select_default_round  %>
   </p>
   <p>
     <%= f.label "Score" %>
