@@ -6,26 +6,51 @@ class Tournament < ApplicationRecord
     self.points != 0
   end
 
-  def round_options
+  def round_options_numbers
     starting_round = self.draw_size
 
     if starting_round == nil || starting_round == 256
-      [256, 128, 64, 32, 16, "Quarter-Final", "Semi-Final", "Final"]
+      [256, 128, 64, 32, 16, 8, 4, 2]
     elsif starting_round == 128
-      [128, 64, 32, 16, "Quarter-Final", "Semi-Final", "Final"]
+      [128, 64, 32, 16, 8, 4, 2]
     elsif starting_round == 64
-      [64, 32, 16, "Quarter-Final", "Semi-Final", "Final"]
+      [64, 32, 16, 8, 4, 2]
     elsif starting_round == 32
-      [32, 16, "Quarter-Final", "Semi-Final", 'Final']
+      [32, 16, 8, 4, 2]
     elsif starting_round == 16
-      [16, "Quarter-Final", "Semi-Final", "Final"]
+      [16, 8, 4, 2]
     elsif starting_round == 8
-      ["Quarter-Final", "Semi-Final", "Final"]
+      [8, 4, 2]
     elsif starting_round == 4
-      ["Semi-Final", "Final"]
+      [4, 2]
     elsif starting_round == 2
-      ["Final"]
+      [2]
     end
+  end
+
+  def convert_round_options
+    @options.map! do |option|
+      if option == 8
+        "Quarter-Final"
+      elsif option == 4
+        "Semi-Final"
+      elsif option == 2
+        "Final"
+      else
+        option
+      end
+    end
+    @options
+  end
+
+  def round_options
+    @options = self.round_options_numbers
+    self.matches.each do |match|
+      if @options.include?(match.round)
+        @options -= [match.round]
+      end
+    end
+    convert_round_options
   end
 
   def result
