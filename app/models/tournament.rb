@@ -47,4 +47,20 @@ class Tournament < ApplicationRecord
   def in_progress?
     self.matches.size < self.round_options.size && !losing_match
   end
+
+  def add_points_to_user
+    self.user.points += self.points
+    self.user.save
+  end
+
+  def remove_points_from_user
+    self.user.points -= self.points
+    self.user.save
+  end
+
+  def update_user_points
+    if self.points_gained?
+      add_points_to_user
+    end
+  end
 end
