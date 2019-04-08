@@ -1,6 +1,6 @@
 class TournamentsController < ApplicationController
   before_action :require_login
-  
+
   def new
     @tournament = Tournament.new
   end
@@ -19,7 +19,7 @@ class TournamentsController < ApplicationController
   private
 
   def tournament_params
-    params.require(:tournament).permit(:title, :date, :location, :draw_size, :points)
+    params.require(:tournament).permit(:title, :start_date, :end_date, :location, :draw_size, :points)
   end
 
 end
