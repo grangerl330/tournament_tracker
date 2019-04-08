@@ -6,3 +6,5 @@
 <% @user.tournaments.each do |tournament| %>
   <p><%= link_to "#{tournament.title}", tournament_path(tournament) %></p>
 <% end %>
+
+<p><%= link_to "Add A Tournament", new_tournament_path %></p>

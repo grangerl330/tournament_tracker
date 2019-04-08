@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @tournament = Tournament.find_by_id(params[:tournament_id])
   end
 
   def create
@@ -23,5 +24,5 @@ class MatchesController < ApplicationController
 
   def set_match
     @match = Match.find(params[:id])
-  end 
+  end
 end

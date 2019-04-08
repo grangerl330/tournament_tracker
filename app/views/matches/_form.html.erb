@@ -9,11 +9,11 @@
   </p>
   <p>
     <%= f.label "Tournament" %>
-    <%= f.collection_select(:tournament_id, Tournament.all, :id, :title) %>
+    <%= f.collection_select(:tournament_id, Tournament.all, :id, :title, {selected: @tournament.id}) %>
   </p>
   <p>
     <%= f.label "Round" %>
-    <%= f.select :round, @match.round_options %>
+    <%= f.select :round, @tournament.round_options %>
   </p>
   <p>
     <%= f.label "Score" %>

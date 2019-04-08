@@ -1,3 +1,4 @@
 <h1><%= @tournament.title %></h1>
 
+<p><%= link_to "Add Match", {:controller => "matches", :action => "new", :tournament_id => @tournament.id} %></p>
 <p><%= link_to "Edit Tournament", edit_tournament_path(@tournament) %></p>

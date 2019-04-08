@@ -38,5 +38,4 @@ class TournamentsController < ApplicationController
   def draw_size_options
     [256, 128, 64, 32, 16, 8, 4, 2]
   end
-
 end
