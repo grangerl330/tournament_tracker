@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'application#index'
+  root 'application#welcome'
   resources :users, only: [:new, :create, :show]
 
   get '/login' => "sessions#new"
