@@ -25,6 +25,11 @@ class TournamentsController < ApplicationController
     redirect_to tournament_path(@tournament)
   end
 
+  def destroy
+    @tournament.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def tournament_params
