@@ -1,0 +1,25 @@
+<%= form_for @tournament do |f| %>
+  <p>
+    <%= f.label "Title" %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label "Date" %>
+    <%= f.date_field :date  %>
+  </p>
+  <p>
+    <%= f.label "Location" %>
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label "Draw Size" %>
+    <%= f.number_field :draw_size %>
+  </p>
+  <p>
+    <%= f.label "Points" %>
+    <%= f.number_field :points %>
+  </p>
+  <p>
+    <%= f.submit "Add Tournament"%>
+  </p>
+<% end %>
