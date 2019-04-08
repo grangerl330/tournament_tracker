@@ -3,7 +3,7 @@ class CreateMatches < ActiveRecord::Migration[5.2]
     create_table :matches do |t|
       t.integer :round
       t.string :score
-      t.boolean :won?
+      t.boolean :won
       t.integer :tournament_id
 
       t.timestamps

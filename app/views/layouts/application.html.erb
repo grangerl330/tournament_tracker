@@ -12,7 +12,7 @@
   <body>
     <%= yield %>
   </body>
-  
+
   <footer>
     <% if logged_in? %>
       <p><%= link_to "Your Profile", user_path(current_user) %></p>

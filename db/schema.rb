@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_140625) do
   create_table "matches", force: :cascade do |t|
     t.integer "round"
     t.string "score"
-    t.boolean "won?"
+    t.boolean "won"
     t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
