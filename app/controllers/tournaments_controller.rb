@@ -1,5 +1,6 @@
 class TournamentsController < ApplicationController
-
+  before_action :require_login
+  
   def new
     @tournament = Tournament.new
   end
@@ -9,6 +10,10 @@ class TournamentsController < ApplicationController
     @tournament.user_id = current_user.id
     @tournament.save
     redirect_to tournament_path(@tournament)
+  end
+
+  def show
+    @tournament = Tournament.find_by_id(params[:id])
   end
 
   private
