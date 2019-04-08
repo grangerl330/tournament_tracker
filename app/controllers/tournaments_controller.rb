@@ -1,6 +1,7 @@
 class TournamentsController < ApplicationController
   before_action :require_login
   before_action :set_tournament, only: [:show, :edit, :update]
+  helper_method :draw_size_options
 
   def new
     @tournament = Tournament.new
@@ -32,6 +33,10 @@ class TournamentsController < ApplicationController
 
   def set_tournament
     @tournament = Tournament.find_by_id(params[:id])
+  end
+
+  def draw_size_options
+    [256, 128, 64, 32, 16, 8, 4, 2]
   end
 
 end
