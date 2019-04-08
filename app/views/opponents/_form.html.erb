@@ -1,0 +1,21 @@
+<%= form_for @opponent do |f| %>
+  <p>
+    <%= f.label "First Name" %>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label "Last Name" %>
+    <%= f.text_field :last_name%>
+  </p>
+  <p>
+    <%= f.label "Age"%>
+    <%= f.number_field :age %>
+  </p>
+  <p>
+    <%= f.label "Right or Left Handed" %>
+    <%= f.text_field :handedness %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

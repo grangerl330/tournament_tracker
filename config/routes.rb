@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :tournaments
   resources :matches
-  resources :opponents
+  resources :opponents, only: [:show, :edit, :update, :delete]
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
