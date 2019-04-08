@@ -1,1 +1,13 @@
-
+<%= form_for @match do |f| %>
+  <p>
+    <%= f.label "Round" %>
+    <%= f.number_field :round %>
+  </p>
+  <p>
+    <%= f.label "Score" %>
+    <%= f.text_field :score %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
