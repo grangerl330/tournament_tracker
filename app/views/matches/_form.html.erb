@@ -1,7 +1,19 @@
 <%= form_for @match do |f| %>
   <p>
+    <%= f.label "Date" %>
+    <%= f.date_field :date %>
+  </p>
+  <p>
+    <%= f.label "Time" %>
+    <%= f.time_field :time %>
+  </p>
+  <p>
+    <%= f.label "Tournament" %>
+    <%= f.collection_select(:tournament_id, Tournament.all, :id, :title) %>
+  </p>
+  <p>
     <%= f.label "Round" %>
-    <%= f.number_field :round %>
+    <%= f.select :round, @match.round_options %>
   </p>
   <p>
     <%= f.label "Score" %>
