@@ -16,6 +16,15 @@ class MatchesController < ApplicationController
   def show
   end
 
+  def edit
+    @tournament = @match.tournament
+  end
+
+  def update
+    @match.update(match_params)
+    redirect_to match_path(@match)
+  end
+
   private
 
   def match_params
