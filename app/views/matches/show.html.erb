@@ -6,4 +6,6 @@
   <p>Result: Lost</p>
 <% end  %>
 
-<%= link_to "Edit Match", edit_match_path(@match) %>
+<p><%= link_to "Edit Match", edit_match_path(@match) %></p>
+<p><%= link_to "Delete Match", match_path(@match), method: :delete %></p>
+<p><%= link_to "Back To Tournament", tournament_path(@match.tournament) %></p>

@@ -1,6 +1,6 @@
 class TournamentsController < ApplicationController
   before_action :require_login
-  before_action :set_tournament, only: [:show, :edit, :update]
+  before_action :set_tournament, only: [:show, :edit, :update, :destroy]
   helper_method :draw_size_options
 
   def new
