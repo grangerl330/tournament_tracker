@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'application#welcome'
   resources :users, only: [:new, :create, :show]
   resources :tournaments
+  resources :matches
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
