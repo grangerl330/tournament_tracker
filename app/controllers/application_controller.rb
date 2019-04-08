@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :current_user
   helper_method :current_user, :logged_in?
 
-  def index
+  def welcome
+    render :layout => false
   end
 
   private
