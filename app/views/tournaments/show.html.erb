@@ -1,4 +1,10 @@
 <h1><%= @tournament.title %></h1>
+<p>Location: <%= @tournament.location %></p>
+
+<h2>Matches</h2>
+<% @tournament.matches.each_with_index do |match, index| %>
+  <p><%= index +1 %>. <%= link_to "Round of #{match.round}", match_path(match) %></p>
+<% end %>
 
 <p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %></p>
 <p><%= link_to "Edit Tournament", edit_tournament_path(@tournament) %></p>
