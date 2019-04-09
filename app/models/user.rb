@@ -12,16 +12,7 @@ class User < ApplicationRecord
   end
 
   def overall_record
-    wins = 0
-    losses = 0
-    self.matches.each do |match|
-      if match.won
-        wins += 1
-      else
-        losses += 1
-      end
-    end
-    "#{wins} - #{losses}"
+    "#{self.match_wins} - #{self.match_losses}"
   end
 
 end
