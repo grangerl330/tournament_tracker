@@ -20,9 +20,29 @@
     <%= f.text_field :score %>
   </p>
   <p>
-    <%= f.label "Check If You Won The Match" %>
+    <%= f.label "Check If You Won" %>
     <%= f.check_box :won %>
   </p>
+  <h2>Opponent:</h2>
+    <%= f.fields_for :opponent do |opponent_builder| %>
+      <p>
+        <%= opponent_builder.label "First Name" %>
+        <%= opponent_builder.text_field :first_name %>
+      </p>
+      <p>
+        <%= opponent_builder.label "Last Name" %>
+        <%= opponent_builder.text_field :last_name %>
+      <p>
+      <p>
+        <%= opponent_builder.label "Age" %>
+        <%= opponent_builder.number_field :age %>
+      </p>
+      <p>
+        <%= opponent_builder.label "Plays" %>
+        <%= opponent_builder.text_field :handedness %>
+        <%= opponent_builder.label "Handed" %>
+      </p>
+    <% end %>
   <p>
     <%= f.submit %>
   </p>

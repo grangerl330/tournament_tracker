@@ -1,11 +1,12 @@
 class Match < ApplicationRecord
   belongs_to :tournament
   has_one :opponent
+  accepts_nested_attributes_for :opponent
 
   def round_options
     if self.tournament
       starting_round = self.tournament.draw_size
-    end 
+    end
 
     if starting_round = nil || starting_round = 256
       [256, 128, 64, 32, 16, 8, 4, 2]

@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @match.build_opponent #need to use build_opponent instead of opponent.build because it is a has_one relationship
     @tournament = Tournament.find_by_id(params[:tournament_id])
   end
 
@@ -34,7 +35,7 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params.require(:match).permit(:date, :time, :round, :score, :won, :tournament_id)
+    params.require(:match).permit(:date, :time, :round, :score, :won, :tournament_id, opponent_id:[], opponent_attributes: [:first_name, :last_name, :age, :handedness])
   end
 
   def set_match
