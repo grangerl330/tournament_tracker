@@ -14,6 +14,12 @@ class TournamentsController < ApplicationController
     redirect_to tournament_path(@tournament)
   end
 
+  def index
+    if params[:user_id]
+      @tournaments = User.find(params[:user_id]).tournaments
+    end 
+  end
+
   def show
   end
 

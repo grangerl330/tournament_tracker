@@ -2,10 +2,5 @@
 <%= link_to "Edit Profile", edit_user_path(current_user) %>
 <h3>Name: <%= @user.full_name %></h3>
 
-<h2>Tournaments</h2>
 
-<% @user.tournaments.each_with_index do |tournament, index| %>
-  <p><%= index + 1 %>. <%= link_to "#{tournament.title}", tournament_path(tournament) %></p>
-<% end %>
-
-<p><%= link_to "Add A Tournament", new_tournament_path %></p>
+<%= link_to "Your Tournaments", user_tournaments_path(@user) %>
