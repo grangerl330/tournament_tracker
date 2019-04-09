@@ -1,7 +1,7 @@
 <h2>Tournaments</h2>
 
-<% @user.tournaments.each_with_index do |tournament, index| %>
+<% @tournaments.each_with_index do |tournament, index| %>
   <p><%= index + 1 %>. <%= link_to "#{tournament.title}", tournament_path(tournament) %></p>
 <% end %>
 
-<p><%= link_to "Add A Tournament", new_tournament_path %></p>
+<p><%= link_to "Add A Tournament", new_user_tournament_path(current_user) %></p>

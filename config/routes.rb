@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
   resources :users do
-    resources :tournaments, only: [:index]
+    resources :tournaments, only: [:index, :new]
   end
 
   resources :tournaments
