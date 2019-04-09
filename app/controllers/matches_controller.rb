@@ -19,6 +19,7 @@ class MatchesController < ApplicationController
 
   def edit
     @tournament = @match.tournament
+    @opponent = @match.opponent
   end
 
   def update
