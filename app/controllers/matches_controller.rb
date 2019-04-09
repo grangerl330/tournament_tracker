@@ -11,8 +11,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.create(match_params)
-    if @match.won
-      current_user.match_wins += 1
+    add_to_user_record
     redirect_to match_path(@match)
   end
 
@@ -31,6 +30,7 @@ class MatchesController < ApplicationController
 
   def destroy
     tournament = @match.tournament
+    remove_from_user_record
     @match.destroy
     redirect_to tournament_path(tournament)
   end
@@ -43,5 +43,41 @@ class MatchesController < ApplicationController
 
   def set_match
     @match = Match.find(params[:id])
+  end
+
+  def add_win_to_user
+    current_user.match_wins += 1
+    current_user.save
+  end
+
+  def add_loss_to_user
+    current_user.match_losses += 1
+    current_user.save
+  end
+
+  def remove_win_from_user
+    current_user.match_wins -= 1
+    current_user.save
+  end
+
+  def remove_loss_from_user
+    current_user.match_losses -= 1
+    current_user.save
+  end
+
+  def add_to_user_record
+    if @match.won
+      add_win_to_user
+    else
+      add_loss_to_user
+    end
+  end
+
+  def remove_from_user_record
+    if @match.won
+      remove_win_from_user
+    else
+      remove_loss_from_user
+    end
   end
 end
