@@ -2,6 +2,7 @@
 <%= link_to "Edit Profile", edit_user_path(current_user) %>
 <p><b>Name:</b> <%= @user.full_name %></p>
 <p><b>Email:</b> <%= @user.email %></p>
+<p><b>Overall Record:</b> <%= @user.overall_record %></p>
 
 
 <p><%= link_to "Your Tournaments", user_tournaments_path(@user) %></p>
