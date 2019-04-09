@@ -16,6 +16,16 @@
     <%= f.text_field :handedness %>
   </p>
   <p>
+    <%= f.label "Style Tags:" %>
+    <%= f.collection_check_boxes(:style_tag_ids, StyleTag.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.fields_for :style_tags, @opponent.style_tags.build do |style_tag_builder| %>
+      <%= style_tag_builder.label "Add A New Style Tag:" %>
+      <%= style_tag_builder.text_field :name %>
+    <% end %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>

@@ -22,7 +22,7 @@ class OpponentsController < ApplicationController
   private
 
   def opponent_params
-    params.require(:opponent).permit(:first_name, :last_name, :age, :handedness, :match_id)
+    params.require(:opponent).permit(:first_name, :last_name, :age, :handedness, :match_id, style_tag_ids: [], style_tags_attributes: [:name])
   end
 
   def set_opponent
