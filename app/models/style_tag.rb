@@ -1,0 +1,2 @@
+class StyleTag < ApplicationRecord
+end

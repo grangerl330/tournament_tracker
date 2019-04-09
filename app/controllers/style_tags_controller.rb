@@ -1,0 +1,2 @@
+class StyleTagsController < ApplicationController
+end

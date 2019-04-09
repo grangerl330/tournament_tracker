@@ -1,0 +1,2 @@
+module StyleTagsHelper
+end

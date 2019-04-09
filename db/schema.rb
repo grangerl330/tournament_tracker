@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_140625) do
+ActiveRecord::Schema.define(version: 2019_04_09_043553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,27 @@ ActiveRecord::Schema.define(version: 2019_04_08_140625) do
     t.string "time"
   end
 
+  create_table "opponent_style_tags", force: :cascade do |t|
+    t.bigint "opponent_id"
+    t.bigint "style_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["opponent_id"], name: "index_opponent_style_tags_on_opponent_id"
+    t.index ["style_tag_id"], name: "index_opponent_style_tags_on_style_tag_id"
+  end
+
   create_table "opponents", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
     t.string "handedness"
     t.integer "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "style_tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,4 +76,6 @@ ActiveRecord::Schema.define(version: 2019_04_08_140625) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "opponent_style_tags", "opponents"
+  add_foreign_key "opponent_style_tags", "style_tags"
 end
