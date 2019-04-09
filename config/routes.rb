@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :tournaments
   resources :matches
   resources :opponents, only: [:show, :edit, :update, :delete]
-  resources :style_tags 
+  resources :style_tags, except: [:show]
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
