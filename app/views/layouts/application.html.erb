@@ -15,7 +15,9 @@
 
   <footer>
     <% if logged_in? %>
-      <p><%= link_to "Your Profile", user_path(current_user) %></p>
+      <% if controller_name != "users" %>
+        <p><%= link_to "Your Profile", user_path(current_user) %></p>
+      <% end %>
       <p><%= link_to "Log Out", logout_path %></p>
     <% end %>
   </footer>
