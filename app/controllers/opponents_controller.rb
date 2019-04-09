@@ -3,8 +3,12 @@ class OpponentsController < ApplicationController
   before_action :set_opponent, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:user_id]
-      @opponents = User.find(params[:user_id]).opponents
+    @style_tags = StyleTag.all
+  
+    if params[:style_tag_ids]
+      search
+    else
+      @opponents = current_user.opponents
     end
   end
 
@@ -22,11 +26,17 @@ class OpponentsController < ApplicationController
   private
 
   def opponent_params
-    params.require(:opponent).permit(:first_name, :last_name, :age, :handedness, :match_id, style_tag_ids: [], style_tags_attributes: [:name])
+    params.require(:opponent).permit(:search, :first_name, :last_name, :age, :handedness, :match_id, style_tag_ids: [], style_tags_attributes: [:name])
   end
 
   def set_opponent
     @opponent = Opponent.find(params[:id])
+  end
+
+  def search
+    @opponents = Opponent.joins(:opponent_style_tags).where(
+      opponent_style_tags: { style_tag_id: params[:style_tag_ids] }
+    )
   end
 
 end

@@ -12,7 +12,7 @@ class TournamentsController < ApplicationController
     @tournament.user_id = current_user.id
     @tournament.save
     update_user_points
-    
+
     redirect_to tournament_path(@tournament)
   end
 
