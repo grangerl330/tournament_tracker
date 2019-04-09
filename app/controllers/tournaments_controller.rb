@@ -12,8 +12,7 @@ class TournamentsController < ApplicationController
     @tournament.user_id = current_user.id
     @tournament.save
     if @tournament.points_gained?
-      current_user.points += @tournament.points
-      current_user.save
+      add_points_to_user
     end
     redirect_to tournament_path(@tournament)
   end
@@ -36,6 +35,7 @@ class TournamentsController < ApplicationController
   end
 
   def destroy
+    remove_points_from_user
     @tournament.destroy
     redirect_to user_path(current_user)
   end
@@ -52,5 +52,15 @@ class TournamentsController < ApplicationController
 
   def draw_size_options
     [256, 128, 64, 32, 16, 8, 4, 2]
+  end
+
+  def add_points_to_user
+    current_user.points += @tournament.points
+    current_user.save
+  end
+
+  def remove_points_from_user
+    current_user.points -= @tournament.points
+    current_user.save
   end
 end
