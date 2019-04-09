@@ -1,5 +1,6 @@
 <h1><%= @tournament.title %></h1>
 <p>Location: <%= @tournament.location %></p>
+<p>Points Won: <%= @tournament.points %></p>
 
 <h2>Matches</h2>
 <% @tournament.matches.each_with_index do |match, index| %>

@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
-    @match.build_opponent #need to use build_opponent instead of opponent.build because it is a has_one relationship
+    @match.build_opponent
     @tournament = Tournament.find_by_id(params[:tournament_id])
   end
 
