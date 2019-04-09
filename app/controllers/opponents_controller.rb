@@ -1,6 +1,12 @@
 class OpponentsController < ApplicationController
   before_action :require_login
-  before_action :set_opponent
+  before_action :set_opponent, only: [:show, :edit, :update, :destroy]
+
+  def index
+    if params[:user_id]
+      @opponents = User.find(params[:user_id]).opponents
+    end
+  end
 
   def show
   end

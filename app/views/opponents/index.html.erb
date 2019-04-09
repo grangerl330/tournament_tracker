@@ -1,0 +1,7 @@
+<h1>Previous Opponents</h1>
+
+<ul>
+<% @opponents.each do |opponent| %>
+  <li><%= link_to "#{opponent.full_name}", opponent_path(opponent) %></li>
+<% end %>
+</ul>

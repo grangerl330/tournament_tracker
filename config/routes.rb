@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :tournaments, only: [:index, :new]
+    resources :opponents, only: [:index]
   end
 
   resources :tournaments
   resources :matches
-  resources :opponents, only: [:show, :edit, :update, :delete]
+  resources :opponents
   resources :style_tags, except: [:show]
 
   get '/login' => "sessions#new"
