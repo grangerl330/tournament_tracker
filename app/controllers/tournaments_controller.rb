@@ -11,13 +11,17 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
     @tournament.save
+    if @tournament.points_gained?
+      current_user.points += @tournament.points
+      current_user.save
+    end
     redirect_to tournament_path(@tournament)
   end
 
   def index
     if params[:user_id]
       @tournaments = User.find(params[:user_id]).tournaments
-    end 
+    end
   end
 
   def show

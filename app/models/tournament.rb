@@ -2,9 +2,13 @@ class Tournament < ApplicationRecord
   belongs_to :user
   has_many :matches
 
+  def points_gained?
+    self.points != 0
+  end
+
   def round_options
     starting_round = self.draw_size
-  
+
     if starting_round == nil || starting_round == 256
       [256, 128, 64, 32, 16, 8, 4, 2]
     elsif starting_round == 128
