@@ -11,6 +11,8 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.create(match_params)
+    if @match.won
+      current_user.match_wins += 1
     redirect_to match_path(@match)
   end
 

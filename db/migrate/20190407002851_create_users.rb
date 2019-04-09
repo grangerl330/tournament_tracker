@@ -5,11 +5,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :email
       t.string :password_digest
-      t.integer :match_wins
-      t.integer :match_losses
-      t.integer :tournaments_won
-      t.integer :points
-      
+      t.integer :match_wins, :default => 0
+      t.integer :match_losses, :default => 0
+      t.integer :tournaments_won, :default => 0
+      t.integer :points, :default => 0
+
       t.timestamps
     end
   end
