@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'application#welcome'
-  resources :users, only: [:new, :create, :show]
+  resources :users
   resources :tournaments
   resources :matches
   resources :opponents, only: [:show, :edit, :update, :delete]
