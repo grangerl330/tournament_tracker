@@ -1,0 +1,2 @@
+class OpponentStyleTag < ApplicationRecord
+end
