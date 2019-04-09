@@ -1,12 +1,12 @@
 <h1><%= @tournament.title %></h1>
+<p><%= link_to "Edit Tournament", edit_tournament_path(@tournament) %> <%= link_to "Delete Tournament", tournament_path(@tournament), method: :delete %></p>
 <p>Location: <%= @tournament.location %></p>
+<p>Draw Size: <%= @tournament.draw_size %></p>
 <p>Points Won: <%= @tournament.points %></p>
 
 <h2>Matches</h2>
 <% @tournament.matches.each_with_index do |match, index| %>
-  <p><%= index +1 %>. <%= link_to "Round of #{match.round}", match_path(match) %></p>
+  <p><%= index +1 %>. <%= link_to "Round of #{match.round} vs #{match.opponent.full_name}", match_path(match) %></p>
 <% end %>
 
 <p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %></p>
-<p><%= link_to "Edit Tournament", edit_tournament_path(@tournament) %></p>
-<p><%= link_to "Delete Tournament", tournament_path(@tournament), method: :delete %></p>
