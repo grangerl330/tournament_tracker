@@ -14,6 +14,19 @@ class StyleTagsController < ApplicationController
     redirect_to style_tags_path
   end
 
+  def edit
+  end
+
+  def update
+    @style_tag.update(style_tag_params)
+    redirect_to style_tags_path
+  end
+
+  def destroy
+    @style_tag.destroy
+    redirect_to style_tags_path
+  end
+
   private
 
   def set_style_tag
