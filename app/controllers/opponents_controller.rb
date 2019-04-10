@@ -1,6 +1,6 @@
 class OpponentsController < ApplicationController
   before_action :require_login
-  before_action :set_opponent, only: [:show, :edit, :update, :destroy]
+  before_action :set_opponent, only: [:show, :edit, :update]
 
   def index
     @style_tags = StyleTag.all
@@ -21,11 +21,6 @@ class OpponentsController < ApplicationController
   def update
     @opponent.update(opponent_params)
     redirect_to opponent_path(@opponent)
-  end
-
-  def destroy
-    @opponent.destroy
-    redirect_to opponents_path
   end
 
   private

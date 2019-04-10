@@ -2,7 +2,7 @@ class Match < ApplicationRecord
   belongs_to :tournament
   has_one :opponent
   accepts_nested_attributes_for :opponent
-  
+
   def round_options
     if self.tournament
       starting_round = self.tournament.draw_size
