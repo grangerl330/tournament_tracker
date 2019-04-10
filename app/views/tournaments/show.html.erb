@@ -8,7 +8,7 @@
 
 <h2>Matches</h2>
 <% @tournament.matches.each_with_index do |match, index| %>
-  <p><%= index +1 %>. <%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match) %></p>
+  <p><%= index +1 %>. <%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match) %> - <%= match.result %></p>
 <% end %>
 
 <p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %></p>

@@ -39,4 +39,12 @@ class Match < ApplicationRecord
       "Round of #{self.round}"
     end
   end
+
+  def result
+    if self.won
+      "Won"
+    else
+      "Lost"
+    end 
+  end
 end
