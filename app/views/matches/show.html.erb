@@ -1,7 +1,7 @@
 <h1>Round of <%= @match.round %></h1>
 <h3>vs: <%= @match.opponent.full_name %></h3>
-<p><b>Date:</b> <%= @match.date.strftime("%m/%d/%Y") %></p>
-<p><b>Time:</b> <%= @match.time.strftime("%l:%M%p") %></p>
+<p><b>Date:</b> <%= @match.date.strftime("%m/%d/%Y") if @match.date %></p>
+<p><b>Time:</b> <%= @match.time.strftime("%l:%M%p") if @match.time %></p>
 <p><b>Score:</b> <%= @match.score %></p>
 <% if @match.won %>
   <p><b>Result:</b> Won</p>
