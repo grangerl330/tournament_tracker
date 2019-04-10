@@ -1,8 +1,10 @@
 <h1><%= @tournament.title %></h1>
 <p><%= link_to "Edit Tournament", edit_tournament_path(@tournament) %> <%= link_to "Delete Tournament", tournament_path(@tournament), method: :delete %></p>
-<p>Location: <%= @tournament.location %></p>
-<p>Draw Size: <%= @tournament.draw_size %></p>
-<p>Points Won: <%= @tournament.points %></p>
+<p><b>Start Date:</b> <%= @tournament.start_date.strftime("%m/%d/%Y") %></p>
+<p><b>End Date:</b> <%= @tournament.end_date.strftime("%m/%d/%Y") %></p>
+<p><b>Location:</b> <%= @tournament.location %></p>
+<p><b>Draw Size:</b> <%= @tournament.draw_size %></p>
+<p><b>Points Won:</b> <%= @tournament.points %></p>
 
 <h2>Matches</h2>
 <% @tournament.matches.each_with_index do |match, index| %>
