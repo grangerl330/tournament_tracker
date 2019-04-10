@@ -26,4 +26,17 @@ class Match < ApplicationRecord
       [2]
     end
   end
+
+  def round_num_or_name
+    case self.round
+    when 2
+      "Final"
+    when 4
+      "Semi-Final"
+    when 8
+      "Quarter-Final"
+    else
+      "Round of #{self.round}"
+    end
+  end
 end
