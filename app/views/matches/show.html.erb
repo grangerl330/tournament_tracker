@@ -1,10 +1,12 @@
 <h1>Round of <%= @match.round %></h1>
 <h3>vs: <%= @match.opponent.full_name %></h3>
-<p>Score: <%= @match.score %></p>
+<p><b>Date:</b> <%= @match.date.strftime("%m/%d/%Y") %></p>
+<p><b>Time:</b> <%= @match.time.strftime("%l:%M%p") %></p>
+<p><b>Score:</b> <%= @match.score %></p>
 <% if @match.won %>
-  <p>Result: Won</p>
+  <p><b>Result:</b> Won</p>
 <% else %>
-  <p>Result: Lost</p>
+  <p><b>Result:</b> Lost</p>
 <% end  %>
 
 <p><%= link_to "Edit Match", edit_match_path(@match) %></p>

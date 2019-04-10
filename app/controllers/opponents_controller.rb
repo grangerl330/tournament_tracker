@@ -4,7 +4,7 @@ class OpponentsController < ApplicationController
 
   def index
     @style_tags = StyleTag.all
-  
+
     if params[:style_tag_ids]
       search
     else
@@ -36,7 +36,7 @@ class OpponentsController < ApplicationController
   def search
     @opponents = Opponent.joins(:opponent_style_tags).where(
       opponent_style_tags: { style_tag_id: params[:style_tag_ids] }
-    )
+    ).uniq
   end
 
 end
