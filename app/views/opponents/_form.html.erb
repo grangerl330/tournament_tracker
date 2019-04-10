@@ -17,7 +17,9 @@
   </p>
   <p>
     <%= f.label "Style Tags:" %>
-    <%= f.collection_check_boxes(:style_tag_ids, StyleTag.all, :id, :name) %>
+    <%= f.collection_check_boxes(:style_tag_ids, StyleTag.all, :id, :name) do |b| %>
+      <p><%= b.check_box + b.text %></p>
+    <% end %>
   </p>
   <p>
     <%= f.fields_for :style_tags, @opponent.style_tags.build do |style_tag_builder| %>
