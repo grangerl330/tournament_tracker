@@ -23,6 +23,11 @@ class OpponentsController < ApplicationController
     redirect_to opponent_path(@opponent)
   end
 
+  def destroy
+    @opponent.destroy
+    redirect_to opponents_path
+  end
+
   private
 
   def opponent_params

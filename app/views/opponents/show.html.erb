@@ -2,6 +2,7 @@
 
 <p>Age: <%= @opponent.age %></p>
 <p>Plays: <%= @opponent.handedness %> handed</p>
+<p>Record vs: </p>
 <p>Style Tags: </p>
 <ul>
   <% @opponent.style_tags.each do |style_tag| %>
@@ -10,3 +11,4 @@
 </ul>
 
 <p><%= link_to "Edit Opponent", edit_opponent_path(@opponent) %></p>
+<p><%= link_to "Delete Opponent", opponent_path(@opponent), method: :delete %></p>
