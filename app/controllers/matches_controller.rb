@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
   before_action :require_login
   before_action :set_match, only: [:show, :edit, :update, :destroy]
-  helper_method :round_options
+  before_action :convert_params_round, only: [:create, :update]
 
   def new
     @match = Match.new
@@ -78,6 +78,17 @@ class MatchesController < ApplicationController
       remove_win_from_user
     else
       remove_loss_from_user
+    end
+  end
+
+  def convert_params_round
+    case params[:match][:round]
+    when "Quarter-Final"
+      params[:match][:round] = 8
+    when "Semi-Final"
+      params[:match][:round] = 4
+    when "Final"
+      params[:match][:round] = 2
     end
   end
 end
