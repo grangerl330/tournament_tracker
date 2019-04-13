@@ -8,8 +8,10 @@
     <%= f.text_field :last_name %>
   </p>
   <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <% if !@user.uid %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    <% end %>
   </p>
   <% if @new %>
     <p>
