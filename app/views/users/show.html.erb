@@ -1,5 +1,8 @@
 <h1>Your Profile:</h1>
-<%= link_to "Edit Profile", edit_user_path(current_user) %>
+<% if @user.image %>
+  <img src="<%= @user.image %>">
+<% end %>
+<p><%= link_to "Edit Profile", edit_user_path(current_user) %></p>
 <p><b>Name:</b> <%= @user.full_name %></p>
 <p><b>Email:</b> <%= @user.email %></p>
 <p><b>Overall Record:</b> <%= @user.overall_record %></p>

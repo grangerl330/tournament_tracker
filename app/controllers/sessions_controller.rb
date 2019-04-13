@@ -21,10 +21,10 @@ class SessionsController < ApplicationController
     end
 
     @user.convert_facebook_name
-    
+
     session[:user_id] = @user.id
 
-    render '/users/facebook_show'
+    render '/users/show'
   end
 
   def destroy
