@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'application#welcome'
+  root 'sessions#new'
 
   resources :users do
     resources :tournaments, only: [:index, :new]
