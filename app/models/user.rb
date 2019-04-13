@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :matches, through: :tournaments
   has_many :opponents, through: :matches
 
-  has_secure_password
+  has_secure_password :validations => false
 
   validates :email, uniqueness: true
 
@@ -33,6 +33,12 @@ class User < ApplicationRecord
   def remove_loss
     self.match_losses -= 1
     self.save
+  end
+
+  def convert_facebook_name
+    first_name = self.name.split.first
+    last_name = self.name.split.last
+    self.update(first_name: first_name, last_name: last_name)
   end
 
 end
