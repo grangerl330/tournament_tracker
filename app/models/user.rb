@@ -41,4 +41,11 @@ class User < ApplicationRecord
     self.update(first_name: first_name, last_name: last_name)
   end
 
+  def record_vs(opponent)
+    opponent_matches = self.matches.select {|match| match.opponent = opponent}
+    wins = opponent_matches.select {|match| match.won = true}
+    losses = opponent_matches.select {|match| match.won = false}
+    "#{wins.count} - #{losses.count}"
+  end
+
 end
