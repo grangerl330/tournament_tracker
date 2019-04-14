@@ -1,4 +1,7 @@
 <h1><%= @match.round_num_or_name %></h1>
+<h4><%= @match.tournament.title %></h4>
+<p><%= link_to "Edit Match", edit_match_path(@match) %> <%= link_to "Delete Match", match_path(@match), method: :delete %></p>
+
 <h3>vs: <%= link_to "#{@match.opponent.full_name}", opponent_path(@match.opponent) %></h3>
 <p><b>Date:</b> <%= @match.date.strftime("%m/%d/%Y") if @match.date %></p>
 <p><b>Time:</b> <%= @match.time.strftime("%l:%M%p") if @match.time %></p>
@@ -9,6 +12,4 @@
   <p><b>Result:</b> Lost</p>
 <% end %>
 
-<p><%= link_to "Edit Match", edit_match_path(@match) %></p>
-<p><%= link_to "Delete Match", match_path(@match), method: :delete %></p>
 <p><%= link_to "Back To Tournament", tournament_path(@match.tournament) %></p>

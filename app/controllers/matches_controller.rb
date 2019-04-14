@@ -48,7 +48,7 @@ class MatchesController < ApplicationController
   end
 
   def set_tournaments
-    @tournaments = Tournament.all
+    @tournaments = current_user.tournaments.all
   end
 
   def convert_params_round_to_number
