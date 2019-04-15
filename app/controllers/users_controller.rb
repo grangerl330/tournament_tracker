@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to new_user_path
+      flash[:alert] = "*Email already taken. Please enter valid email"
+      render new_user_path
     end
   end
 
@@ -23,8 +24,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "*Email already taken. Please enter valid email"
+      redirect_to edit_user_path(@user)
+    end
   end
 
   def destroy

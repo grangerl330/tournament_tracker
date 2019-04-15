@@ -1,7 +1,7 @@
 <%= form_for @match do |f| %>
   <p>
     <%= f.label "Date" %>
-    <%= f.date_field :date %>
+    <%= f.date_field :date, required: true %>
   </p>
   <p>
     <%= f.label "Time" %>
@@ -21,7 +21,7 @@
   </p>
   <p>
     <%= f.label "Score" %>
-    <%= f.text_field :score %>
+    <%= f.text_field :score, required: true %>
   </p>
   <p>
     <%= f.label "Check Box If You Won" %>
