@@ -1,6 +1,11 @@
 <h1>Edit Match</h1>
 
-<h3>vs: <%= @opponent.full_name %></h3><%= link_to "Edit Opponent", edit_opponent_path(@opponent) %>
+<h3>vs: <%= link_to "#{@opponent.full_name}", edit_opponent_path(@opponent) %></h3>
+
 <%= render 'form' %>
 
-<p><%= link_to "Back To Match", match_path(@match) %></p>
+<% content_for :footer do %>
+  <%= link_to "Back To Match", match_path(@match) %>
+  <br>
+  <br>
+<% end %>

@@ -34,7 +34,7 @@ class TournamentsController < ApplicationController
     @tournament.update(tournament_params)
     if @tournament.points
       @tournament.update_user_points
-    end 
+    end
     redirect_to tournament_path(@tournament)
   end
 
