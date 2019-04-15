@@ -47,5 +47,4 @@ class User < ApplicationRecord
     losses = opponent_matches.select {|match| match.won = false}
     "#{wins.count} - #{losses.count}"
   end
-
 end

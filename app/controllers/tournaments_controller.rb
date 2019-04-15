@@ -11,7 +11,9 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
     @tournament.save
-    @tournament.update_user_points
+    if @tournament.points
+      @tournament.update_user_points
+    end
 
     redirect_to tournament_path(@tournament)
   end
@@ -30,6 +32,9 @@ class TournamentsController < ApplicationController
 
   def update
     @tournament.update(tournament_params)
+    if @tournament.points
+      @tournament.update_user_points
+    end 
     redirect_to tournament_path(@tournament)
   end
 
