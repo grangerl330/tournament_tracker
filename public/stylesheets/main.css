@@ -63,7 +63,7 @@
   h3 {
     font-size: 18px;
     line-height: 36px;
-    color: #8888ff;
+    /* color: #8888ff; */
     margin-top: -7px;
     margin-bottom: 10px
   }
@@ -79,6 +79,11 @@
 
   a {
     margin-right: 3px;
+  }
+
+  .login {
+    margin-top: 10px;
+    margin-bottom: 10px
   }
 
   .inline {
