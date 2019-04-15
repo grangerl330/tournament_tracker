@@ -1,9 +1,7 @@
-<h1>Style Tags</h1>
+<h1 class="inline">Style Tags</h1> <%= link_to "Add Tag", new_style_tag_path %>
 
 <ul>
 <% @style_tags.each do |tag| %>
   <li><%= tag.name %> <%= link_to "Edit", edit_style_tag_path(tag) %> <%= link_to "Delete", style_tag_path(tag), method: :delete %></li>
 <% end %>
 </ul>
-
-<%= link_to "Add Tag", new_style_tag_path %>

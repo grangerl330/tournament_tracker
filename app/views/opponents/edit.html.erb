@@ -2,4 +2,8 @@
 
 <%= render 'form' %>
 
-<%= link_to "Back To Opponent", opponent_path(@opponent) %>
+<% content_for :footer do %>
+  <%= link_to "Back To Opponent", opponent_path(@opponent) %>
+  <br>
+  <br>
+<% end %>

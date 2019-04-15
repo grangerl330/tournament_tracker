@@ -2,4 +2,8 @@
 
 <%= render 'form' %>
 
-<p><%= link_to "Back To Profile", user_path(current_user) %></p>
+<% content_for :footer do %>
+  <%= link_to "Back To Profile", user_path(current_user) %>
+  <br>
+  <br>
+<% end %>

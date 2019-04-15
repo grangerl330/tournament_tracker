@@ -1,14 +1,9 @@
-<h1>Your Profile:</h1>
-<% if @user.image %>
-  <img src="<%= @user.image %>">
-<% end %>
-<p><%= link_to "Edit Profile", edit_user_path(current_user) %></p>
+<h1 class="inline">Your Profile</h1> <%= link_to "Edit Profile", edit_user_path(current_user) %>
+
 <p><b>Name:</b> <%= @user.full_name %></p>
 <p><b>Email:</b> <%= @user.email %></p>
 <p><b>Overall Record:</b> <%= @user.overall_record %></p>
 <p><b>Total Points:</b> <%= @user.points %></p>
 
 
-<p><%= link_to "Your Tournaments", user_tournaments_path(@user) %></p>
-<p><%= link_to "Style Tags", style_tags_path %></p>
-<p><%= link_to "Previous Opponents", user_opponents_path(@user) %></p>
+<p><%= link_to "Your Tournaments", user_tournaments_path(@user) %> <%= link_to "Style Tags", style_tags_path %> <%= link_to "Previous Opponents", user_opponents_path(@user) %></p>

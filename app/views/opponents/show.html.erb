@@ -1,14 +1,17 @@
-<h1><%= @opponent.full_name %></h1>
-<p><%= link_to "Edit Opponent", edit_opponent_path(@opponent) %></p>
+<h1 class="inline"><%= @opponent.full_name %></h1> <%= link_to "Edit", edit_opponent_path(@opponent) %>
 
-<p>Age: <%= @opponent.age %></p>
-<p>Plays: <%= @opponent.handedness %> handed</p>
-<p>Record vs: <%= current_user.record_vs(@opponent) %></p>
-<p>Style Tags: </p>
+<p><b>Age:</b> <%= @opponent.age %></p>
+<p><b>Plays:</b> <%= @opponent.handedness %> handed</p>
+<p><b>Record vs:</b> <%= current_user.record_vs(@opponent) %></p>
+<p><b>Style Tags:</b> </p>
 <ul>
   <% @opponent.style_tags.each do |style_tag| %>
     <li><%= style_tag.name %></li>
   <% end %>
 </ul>
 
-<p><%= link_to "Back To Match", match_path(@opponent.match) %></p>
+<% content_for :footer do %>
+  <%= link_to "Back To Match", match_path(@opponent.match) %>
+  <br>
+  <br>
+<% end %>

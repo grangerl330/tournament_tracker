@@ -19,8 +19,11 @@
     <footer class="branding">
       <% if logged_in? %>
         <% if controller_name != "users" %>
-          <p><%= link_to "Your Profile", user_path(current_user) %></p>
+          <%= link_to "Your Profile", user_path(current_user) %>
         <% end %>
+
+        <%= yield :footer %>
+
         <p><%= link_to "Log Out", logout_path %></p>
       <% end %>
       <small style="color:#b8b8b8">&copy; 2019 <strong>Tournament Tracker</strong></small>

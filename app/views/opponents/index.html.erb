@@ -1,12 +1,12 @@
-<h1>Previous Opponents</h1>
+<h1 class="inline">Previous Opponents</h1>
 
 <ul>
   <% @opponents.each do |opponent| %>
     <li><%= link_to "#{opponent.full_name}", opponent_path(opponent) %></li>
   <% end %>
 </ul>
-
-<h4>Search By Style Tag</h4>
+<br>
+<p><b>Search By Style Tag</b></p>
   <%= form_tag(opponents_path, method: :get) do %>
     <% @style_tags.each do |style_tag| %>
       <%= check_box_tag "style_tag_ids[]", style_tag.id, checked = false, :id => "style_tag_ids_#{style_tag.id}" %>

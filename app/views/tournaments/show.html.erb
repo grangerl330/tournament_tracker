@@ -1,5 +1,5 @@
-<h1><%= @tournament.title %></h1>
-<p><%= link_to "Edit Tournament", edit_tournament_path(@tournament) %> <%= link_to "Delete Tournament", tournament_path(@tournament), method: :delete %></p>
+<h1 class="inline"><%= @tournament.title %></h1> <%= link_to "Edit", edit_tournament_path(@tournament) %> <%= link_to "Delete", tournament_path(@tournament), method: :delete %>
+
 <p><b>Start Date:</b> <%= @tournament.start_date.strftime("%m/%d/%Y") if @tournament.start_date %></p>
 <p><b>End Date:</b> <%= @tournament.end_date.strftime("%m/%d/%Y") if @tournament.end_date %></p>
 <p><b>Location:</b> <%= @tournament.location %></p>
@@ -7,11 +7,15 @@
 <p><b>Points Won:</b> <%= @tournament.points %></p>
 <p><b>Result:</b> <%= @tournament.result %></p>
 
-<h2>Matches</h2>
+
+<h2>Matches</h2> <%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %>
+
 <% @tournament.matches.each_with_index do |match, index| %>
   <p><%= index +1 %>. <%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match) %> - <%= match.result %></p>
 <% end %>
 
-<p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %></p>
-
-<p><p><%= link_to "Back To Tournaments", user_tournaments_path(current_user) %></p></p>
+<% content_for :footer do %>
+  <%= link_to "Back To Tournaments", user_tournaments_path(current_user) %>
+  <br>
+  <br>
+<% end %>
