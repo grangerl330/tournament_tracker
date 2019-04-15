@@ -68,8 +68,10 @@ class Tournament < ApplicationRecord
   end
 
   def remove_points_from_user
-    self.user.points -= self.points
-    self.user.save
+    if self.points
+      self.user.points -= self.points
+      self.user.save
+    end 
   end
 
   def update_user_points
