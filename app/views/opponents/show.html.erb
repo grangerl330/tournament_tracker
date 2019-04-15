@@ -2,7 +2,6 @@
 
 <p><b>Age:</b> <%= @opponent.age %></p>
 <p><b>Plays:</b> <%= @opponent.handedness %> handed</p>
-<p><b>Record vs:</b> <%= current_user.record_vs(@opponent) %></p>
 <p><b>Style Tags:</b> </p>
 <ul>
   <% @opponent.style_tags.each do |style_tag| %>

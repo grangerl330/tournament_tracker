@@ -31,10 +31,13 @@ class TournamentsController < ApplicationController
   end
 
   def update
+    @tournament.remove_points_from_user
     @tournament.update(tournament_params)
+
     if @tournament.points
       @tournament.update_user_points
     end
+    
     redirect_to tournament_path(@tournament)
   end
 
