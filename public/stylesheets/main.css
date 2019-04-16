@@ -77,6 +77,10 @@
     margin-right: 3px;
   }
 
+  .small {
+    font-size: 12px
+  }
+
   .login {
     margin-top: 10px;
     margin-bottom: 10px

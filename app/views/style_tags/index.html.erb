@@ -2,6 +2,6 @@
 
 <ul>
 <% @style_tags.each do |tag| %>
-  <li><%= tag.name %> <%= link_to "Edit", edit_style_tag_path(tag) %> <%= link_to "Delete", style_tag_path(tag), method: :delete %></li>
+  <li><%= tag.name %> <%= link_to "Edit", edit_style_tag_path(tag), class: "small" %> <%= link_to "Delete", style_tag_path(tag), method: :delete, class: "small" %></li>
 <% end %>
 </ul>
