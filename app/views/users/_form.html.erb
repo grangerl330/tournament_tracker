@@ -15,12 +15,14 @@
       Email: Set Through Facebook
     <% end %>
   </p>
-  <% if @new %>
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password, required: true %>
-    </p>
-  <% end %>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true %>
+  </p>
+  <p>
+    <%= f.label "Password Confirmation" %>
+    <%= f.password_field :password_confirmation, required: true %>
+  </p>
   <p>
     <%= f.submit %>
   </p>

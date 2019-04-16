@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :require_login, :set_user, only: [:show, :edit, :update, :destroy]
 
   def new
-    @new = true
     @user = User.new
   end
 
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:alert] = "*Email already taken. Please enter valid email"
+      flash[:alert] = "*Invalid Email or Password. Please make sure email is original and passwords match"
       render new_user_path
     end
   end
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
       @user.update(user_params)
       redirect_to user_path(@user)
     else
-      flash[:alert] = "*Email already taken. Please enter valid email"
+      flash[:alert] = "*Invalid Email or Password. Please make sure email is original and passwords match"
       redirect_to edit_user_path(@user)
     end
   end
