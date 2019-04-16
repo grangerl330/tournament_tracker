@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :matches, through: :tournaments
   has_many :opponents, through: :matches
 
-  has_secure_password #validations: false
+  has_secure_password #validations: false  -> added this to get facebook omniauth to work the first time logging in when it had to create a new user
 
   validates :email, uniqueness: true
 
