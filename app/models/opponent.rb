@@ -2,6 +2,7 @@ class Opponent < ApplicationRecord
   belongs_to :match
   has_many :opponent_style_tags, dependent: :nullify
   has_many :style_tags, through: :opponent_style_tags
+  normalize_attribute :first_name, :last_name, :with => :strip
 
   def style_tags_attributes=(style_tags_hashes)
     style_tags_hashes.each do |i, style_tag_attributes|
