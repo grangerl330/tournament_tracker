@@ -22,6 +22,11 @@ class TournamentsController < ApplicationController
     if params[:user_id]
       @tournaments = tournaments_sorted_by_date
     end
+
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @tournaments}
+    end
   end
 
   def show
@@ -37,7 +42,7 @@ class TournamentsController < ApplicationController
     if @tournament.points
       @tournament.update_user_points
     end
-    
+
     redirect_to tournament_path(@tournament)
   end
 
