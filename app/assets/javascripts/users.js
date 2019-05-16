@@ -1,23 +1,29 @@
 $(function(){
   console.log('users.js is loaded...')
-  clickShowTournaments()
+  listenForClick()
 })
 
-function clickShowTournaments() {
+function listenForClick() {
   $('button#tournaments-data').on('click', function(event) {
     event.preventDefault()
 
-    $.ajax({
-      url: `http://localhost:3000/users/${this.value}/tournaments`,
-      method: 'get',
-      dataType: 'json'
-    }).done(function(data){
-      console.log("the data is: ", data)
+    if($('button#tournaments-data').text() === "Show Tournaments"){
+      $.ajax({
+        url: `http://localhost:3000/users/${this.value}/tournaments`,
+        method: 'get',
+        dataType: 'json'
+      }).done(function(data){
+        console.log("the data is: ", data)
 
-      var tournamentsHTML = tournamentsListHTML(data)
+        var tournamentsHTML = tournamentsListHTML(data)
+        $('#show-tournaments').html("")
+        $('#show-tournaments').append(tournamentsHTML)
+        $('button#tournaments-data').text("Hide Tournaments")
+      })
+    } else {
       $('#show-tournaments').html("")
-      $('#show-tournaments').append(tournamentsHTML)
-    })
+      $('button#tournaments-data').text("Show Tournaments")
+    }
   })
 }
 
