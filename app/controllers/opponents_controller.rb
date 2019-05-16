@@ -10,6 +10,11 @@ class OpponentsController < ApplicationController
     else
       @opponents = current_user.opponents
     end
+
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @opponents}
+    end
   end
 
   def show
