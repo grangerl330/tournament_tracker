@@ -1,9 +1,9 @@
 $(function(){
   console.log('users.js is loaded...')
-  listenForClick()
+  listenForClickUsersPage()
 })
 
-function listenForClick() {
+function listenForClickUsersPage() {
   onClickShowTournaments()
   onClickShowStyleTags()
   onClickShowPreviousOpponents()

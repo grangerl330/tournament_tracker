@@ -7,15 +7,16 @@
 <p><b>Points Won:</b> <%= @tournament.points %></p>
 <p><b>Result:</b> <%= @tournament.result %></p>
 
+<div id="match-display">
+  <h2>Matches</h2> <%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id), id:"add-match" %>
 
-<h2>Matches</h2> <%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id) %>
+  <% @tournament.matches.each_with_index do |match, index| %>
+    <p><%= index +1 %>. <%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match), class:"match-link" %> - <%= match.result %></p>
+  <% end %>
 
-<% @tournament.matches.each_with_index do |match, index| %>
-  <p><%= index +1 %>. <%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match) %> - <%= match.result %></p>
-<% end %>
-
-<% content_for :footer do %>
-  <%= link_to "Back To Tournaments", user_tournaments_path(current_user) %>
-  <br>
-  <br>
-<% end %>
+  <% content_for :footer do %>
+    <%= link_to "Back To Tournaments", user_tournaments_path(current_user) %>
+    <br>
+    <br>
+  <% end %>
+</div>
