@@ -3,6 +3,10 @@ class StyleTagsController < ApplicationController
 
   def index
     @style_tags = StyleTag.all
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @style_tags}
+    end
   end
 
   def new

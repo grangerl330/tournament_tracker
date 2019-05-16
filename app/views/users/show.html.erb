@@ -6,8 +6,8 @@
 <p><b>Total Points:</b> <%= @user.points %></p>
 
 
-<p><%= link_to "Show Tournaments", user_tournaments_path(@user), id: "tournaments-data", value: @user.id %> <%= link_to "Style Tags", style_tags_path %> <%= link_to "Previous Opponents", user_opponents_path(@user) %></p>
+<p><%= link_to "Show Tournaments", user_tournaments_path(@user), id: "tournaments-data", value: @user.id %> <%= link_to "Show Style Tags", style_tags_path, id: "style-tags-data" %> <%= link_to "Previous Opponents", user_opponents_path(@user) %></p>
 
 
-<div id="show-tournaments">
+<div id="show-data">
 </div>
