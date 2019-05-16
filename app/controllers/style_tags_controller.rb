@@ -15,7 +15,7 @@ class StyleTagsController < ApplicationController
 
   def create
     StyleTag.create(style_tag_params)
-    redirect_to style_tags_path
+    redirect_to user_path(current_user)
   end
 
   def edit
