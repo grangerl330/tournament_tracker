@@ -1,12 +1,12 @@
 $(function(){
   console.log('users.js is loaded...')
-  listenForClick()
+  clickShowTournaments()
 })
 
-function listenForClick() {
+function clickShowTournaments() {
   $('button#tournaments-data').on('click', function(event) {
     event.preventDefault()
-    // alert("You Clicked The Link")
+
     $.ajax({
       url: `http://localhost:3000/users/${this.value}/tournaments`,
       method: 'get',
@@ -14,10 +14,9 @@ function listenForClick() {
     }).done(function(data){
       console.log("the data is: ", data)
 
-      let tournament = new Tournament(data[0])
-      let tournamentHTML = tournament.tournamentHTML()
-
-      $('#show-tournaments').append(tournamentHTML)
+      var tournamentsHTML = tournamentsListHTML(data)
+      $('#show-tournaments').html("")
+      $('#show-tournaments').append(tournamentsHTML)
     })
   })
 }
@@ -36,11 +35,26 @@ class Tournament {
   }
 }
 
+function tournamentsListHTML(data) {
+  var counter = 1
+
+  var html = `
+    <h3>Tournaments</h3>
+    <ul>
+  `
+
+  data.forEach(function(tournament_data){
+    var tournament = new Tournament(tournament_data)
+
+    html += `<li>${counter}. ${tournament.tournamentHTML()}</li>`
+    counter += 1
+  })
+
+  html += `</ul>`
+
+  return(html)
+}
+
 Tournament.prototype.tournamentHTML = function() {
-  return(`
-
-    <h2>Tournaments</h2>
-
-    <h4>${this.title}</h4>
-    `)
+  return(`${this.title}`)
 }
