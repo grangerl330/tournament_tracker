@@ -52,7 +52,7 @@ function tournamentsListHTML(data) {
   data.forEach(function(tournament_data){
     var tournament = new Tournament(tournament_data)
 
-    html += `<li>${counter}. ${tournament.tournamentHTML()}</li>`
+    html += `<li>${counter}. <a href='http://localhost:3000/tournaments/${tournament.id}'>${tournament.tournamentHTML()}</a></li>`
     counter += 1
   })
 
