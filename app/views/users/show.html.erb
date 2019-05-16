@@ -5,9 +5,11 @@
 <p><b>Overall Record:</b> <%= @user.overall_record %></p>
 <p><b>Total Points:</b> <%= @user.points %></p>
 
-
-<p><%= link_to "Show Tournaments", user_tournaments_path(@user), id: "tournaments-data", value: @user.id %> <%= link_to "Show Style Tags", style_tags_path, id: "style-tags-data" %> <%= link_to "Previous Opponents", user_opponents_path(@user) %></p>
-
+<p>
+  <div id="data-links">
+    <%= link_to "Show Tournaments", user_tournaments_path(@user), id: "tournaments-data", value: @user.id %> <%= link_to "Show Style Tags", style_tags_path, id: "style-tags-data" %> <%= link_to "Show Previous Opponents", user_opponents_path(@user), id:"opponents-data" %>
+  </div>
+</p>
 
 <div id="show-data">
 </div>

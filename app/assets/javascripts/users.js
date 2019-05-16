@@ -19,10 +19,12 @@ function listenForClick() {
         $('#show-data').html("")
         $('#show-data').append(tournamentsHTML)
         $('#tournaments-data').text("Hide Tournaments")
+        updateLinks("keep tournaments")
       })
     } else {
       $('#show-data').html("")
       $('#tournaments-data').text("Show Tournaments")
+      updateLinks("restore links")
     }
   })
 
@@ -41,13 +43,37 @@ function listenForClick() {
         $('#show-data').html("")
         $('#show-data').append(styleTagsHTML)
         $('#style-tags-data').text("Hide Style Tags")
+        updateLinks("keep style tags")
       })
     } else {
       $('#show-data').html("")
       $('#style-tags-data').text("Show Style Tags")
+      updateLinks("restore links")
     }
   })
 }
+
+function updateLinks(keyword){
+  if (keyword === "keep tournaments") {
+    $('#style-tags-data').text("")
+    $('#opponents-data').text("")
+  } else if (keyword === "keep style tags") {
+    $('#tournaments-data').text("")
+    $('#opponents-data').text("")
+  } else if (keyword === "restore links"){
+    restoreLinks()
+  } else {
+    $('#tournaments-data').text("")
+    $('#style-tags-data').text("")
+  }
+}
+
+function restoreLinks(){
+  $('#tournaments-data').text("Show Tournaments")
+  $('#style-tags-data').text("Show Style Tags")
+  $('#opponents-data').text("Show Previous Opponents")
+}
+
 
 class Tournament {
   constructor(obj){
