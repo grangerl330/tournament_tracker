@@ -7,3 +7,5 @@
 
 
 <p><%= link_to "Your Tournaments", user_tournaments_path(@user) %> <%= link_to "Style Tags", style_tags_path %> <%= link_to "Previous Opponents", user_opponents_path(@user) %></p>
+
+<button type="button" id="tournaments-data" value="<%= @user.id %>">Show Tournaments</button>
