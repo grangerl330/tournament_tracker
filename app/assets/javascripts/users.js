@@ -38,6 +38,7 @@ class Tournament {
     this.points = obj.points
     this.won = obj.won
     this.matches = obj.matches
+    this.user = obj.user
   }
 }
 
@@ -45,7 +46,7 @@ function tournamentsListHTML(data) {
   var counter = 1
 
   var html = `
-    <h3>Tournaments</h3>
+    <h3 class="inline">Tournaments</h3><a href='http://localhost:3000/users/${data[0].user.id}/tournaments/new'>Add Tournament</a>
     <ul>
   `
 
