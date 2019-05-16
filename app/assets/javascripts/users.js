@@ -4,12 +4,12 @@ $(function(){
 })
 
 function listenForClick() {
-  $('button#tournaments-data').on('click', function(event) {
+  $('#tournaments-data').on('click', function(event) {
     event.preventDefault()
 
-    if($('button#tournaments-data').text() === "Show Tournaments"){
+    if($('#tournaments-data').text() === "Show Tournaments"){
       $.ajax({
-        url: `http://localhost:3000/users/${this.value}/tournaments`,
+        url: this.href,
         method: 'get',
         dataType: 'json'
       }).done(function(data){
@@ -18,11 +18,11 @@ function listenForClick() {
         var tournamentsHTML = tournamentsListHTML(data)
         $('#show-tournaments').html("")
         $('#show-tournaments').append(tournamentsHTML)
-        $('button#tournaments-data').text("Hide Tournaments")
+        $('#tournaments-data').text("Hide Tournaments")
       })
     } else {
       $('#show-tournaments').html("")
-      $('button#tournaments-data').text("Show Tournaments")
+      $('#tournaments-data').text("Show Tournaments")
     }
   })
 }
