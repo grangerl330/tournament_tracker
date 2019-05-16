@@ -4,6 +4,11 @@ $(function(){
 })
 
 function listenForClick() {
+  onClickShowTournaments()
+  onClickShowStyleTags()
+}
+
+function onClickShowTournaments(){
   $('#tournaments-data').on('click', function(event) {
     event.preventDefault()
 
@@ -27,7 +32,9 @@ function listenForClick() {
       updateLinks("restore links")
     }
   })
+}
 
+function onClickShowStyleTags(){
   $('#style-tags-data').on('click', function(event){
     event.preventDefault()
 
