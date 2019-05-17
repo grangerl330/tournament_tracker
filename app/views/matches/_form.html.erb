@@ -28,6 +28,10 @@
     <%= f.check_box :won %>
   </p>
   <p>
-    <%= f.submit %>
+    <% if @match.round %>
+      <%= f.submit %>
+    <% else %>
+      <%= f.submit "Add Match" %>
+    <% end %>
   </p>
 <% end %>

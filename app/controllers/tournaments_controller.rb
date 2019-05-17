@@ -30,6 +30,8 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    @match = @tournament.matches.build
+    @tournaments = current_user.tournaments
     respond_to do |f|
       f.html {render :show}
       f.json {render json: @tournament}

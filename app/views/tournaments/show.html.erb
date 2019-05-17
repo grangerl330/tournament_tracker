@@ -11,10 +11,14 @@
 <p><a href="" id="show-matches-link" style="display:none"></a></p>
 
 <div id="all-match-display" style="">
-  <h2>Matches</h2> <%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id), id:"add-match" %>
+  <h2>Matches</h2>
   <% @tournament.matches.each_with_index do |match, index| %>
-    <p><%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match), class:"match-link" %> - <%= match.result %></p>
+    <% if match.round %>
+      <p><%= link_to "#{match.round_num_or_name} vs #{match.opponent.full_name}", match_path(match), class:"match-link" %> - <%= match.result %></p>
+    <% end %>
   <% end %>
+
+  <p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id), id:"add-match" %></p>
 
   <% content_for :footer do %>
     <br>
@@ -23,4 +27,8 @@
 </div>
 
 <div id="single-match-display">
+</div>
+<div id="new-match-form" style="display:none">
+  <h2 style="margin-bottom: -5px">Add A New Match</h2>
+  <p><%= render 'matches/form' %></p>
 </div>

@@ -6,18 +6,16 @@ $(function(){
 function listenForClickTournamentsPage() {
   onClickMatchLink()
   onClickShowAllMatches()
+  onClickAddMatch()
 }
 
-// function onClickAddMatch(){
-//   $('#add-match').on('click', function(event){
-//     event.preventDefault()
-//
-//     $.ajax({
-//
-//     })
-//
-//   })
-// }
+function onClickAddMatch(){
+  $('#add-match').on('click', function(event){
+    event.preventDefault()
+    $('#new-match-form').attr("style", "")
+    $('#add-match').attr("style", "display:none")
+  })
+}
 
 function onClickMatchLink(){
   $('.match-link').on('click', function(event){
