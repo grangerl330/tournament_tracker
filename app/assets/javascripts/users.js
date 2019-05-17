@@ -166,10 +166,12 @@ function opponentsListHTML(data) {
 function tournamentsListHTML(data) {
   var counter = 1
 
+if(data[0] !== undefined){
   var html = `
     <h3 class="inline">Tournaments</h3><a href='http://localhost:3000/users/${data[0].user.id}/tournaments/new'>Add Tournament</a>
     <ul>
   `
+
 
   data.forEach(function(tournament_data){
     var tournament = new Tournament(tournament_data)
@@ -179,6 +181,10 @@ function tournamentsListHTML(data) {
   })
 
   html += `</ul>`
+
+} else {
+  var html = `<h3 class="inline">Tournaments</h3><a href='http://localhost:3000/tournaments/new'>Add Tournament</a>`
+}
 
   return(html)
 }
