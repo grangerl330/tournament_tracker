@@ -50,7 +50,7 @@ class Tournament < ApplicationRecord
       "Won"
     else
       self.update(won: false)
-      "Lost in #{losing_match.round_num_or_name}"
+      "Lost in #{losing_match.round_num_or_name}" if losing_match
     end
   end
 

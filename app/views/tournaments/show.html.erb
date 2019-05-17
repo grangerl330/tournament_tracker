@@ -18,13 +18,12 @@
     <% end %>
   <% end %>
 
-  <p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id), id:"add-match" %></p>
-
   <% content_for :footer do %>
     <br>
     <br>
   <% end %>
 </div>
+<p><%= link_to "Add Match", new_match_path(:tournament_id => @tournament.id), id:"add-match" %></p>
 
 <div id="single-match-display">
 </div>

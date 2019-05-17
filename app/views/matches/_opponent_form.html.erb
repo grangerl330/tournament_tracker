@@ -1,4 +1,4 @@
-<%= form_for @match do |f| %>
+<%= form_for(@match, url:{controller:'matches', action:'create'}, method:'post') do |f| %>
   <p>
     <%= f.label "Date" %>
     <%= f.date_field :date, required: true %>

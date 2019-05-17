@@ -7,6 +7,7 @@ function listenForClickTournamentsPage() {
   onClickMatchLink()
   onClickShowAllMatches()
   onClickAddMatch()
+  onSubmitAddNewMatchForm()
 }
 
 function onClickAddMatch(){
@@ -36,6 +37,7 @@ function onClickMatchLink(){
 
       $('#all-match-display').attr("style", "display:none")
       $('#single-match-display').html(matchHTML)
+      $('#add-match').attr("style", "display:none")
 
       editShowAllMatchesLink(showMatchesHref)
     })
@@ -56,6 +58,27 @@ function onClickShowAllMatches() {
       $('#all-match-display').attr("style", "")
       $('#show-matches-link').attr("style", "display:none")
       $('#single-match-display').html("")
+      $('#add-match').attr("style", "")
+    })
+  })
+}
+
+function onSubmitAddNewMatchForm(){
+  $('.edit_match').on('submit', function(event){
+    event.preventDefault()
+
+    url = this.action
+
+    data = $(this).serialize()
+
+    $.ajax({
+      method: 'post',
+      url: this.action,
+      data: $(this).serialize()
+    }).success(function(response){
+      $('#all-match-display').append(response)
+      $('#new-match-form').attr("style", "display:none")
+      $('#add-match').attr("style", "")
     })
   })
 }

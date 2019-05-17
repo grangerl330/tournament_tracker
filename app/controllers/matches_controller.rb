@@ -13,7 +13,8 @@ class MatchesController < ApplicationController
   def create
     @match = Match.create(match_params)
     @match.add_to_user_record
-    redirect_to match_path(@match)
+    # redirect_to match_path(@match)
+    render 'matches/link', layout: false
   end
 
   def show
