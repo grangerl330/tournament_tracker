@@ -30,6 +30,10 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @tournament}
+    end
   end
 
   def edit
