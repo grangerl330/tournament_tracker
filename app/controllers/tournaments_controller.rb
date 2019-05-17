@@ -31,6 +31,7 @@ class TournamentsController < ApplicationController
 
   def show
     @match = @tournament.matches.build
+    @match.build_opponent
     @tournaments = current_user.tournaments
     respond_to do |f|
       f.html {render :show}

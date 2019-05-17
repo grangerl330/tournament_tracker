@@ -23,7 +23,7 @@
     <%= f.label "Check Box If You Won" %>
     <%= f.check_box :won %>
   </p>
-  <h2>Opponent:</h2>
+  <h3>Opponent:</h3>
     <%= f.fields_for :opponent do |opponent_builder| %>
       <p>
         <%= opponent_builder.label "First Name" %>
@@ -44,6 +44,10 @@
       </p>
     <% end %>
   <p>
-    <%= f.submit %>
+    <% if @match.round %>
+      <%= f.submit %>
+    <% else %>
+      <%= f.submit "Add Match" %>
+    <% end %>
   </p>
 <% end %>
