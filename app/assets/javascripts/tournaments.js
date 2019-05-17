@@ -89,7 +89,7 @@ Match.prototype.convertRoundName = function() {
   } else if (this.round === 2) {
     this.round = "Final"
   } else {
-    this.round
+    this.round = `Round of ${this.round}`
   }
 }
 
