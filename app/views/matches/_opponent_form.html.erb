@@ -47,7 +47,7 @@
     <% if @match.round %>
       <%= f.submit %>
     <% else %>
-      <%= f.submit "Add Match" %>
+      <%= f.submit "Add Match", data: { disable_with: false } %>
     <% end %>
   </p>
 <% end %>

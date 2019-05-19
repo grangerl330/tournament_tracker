@@ -66,7 +66,7 @@ function onClickShowAllMatches() {
 }
 
 function onSubmitAddNewMatchForm(){
-  $('.new_match').on('submit', function(event){
+  $('#new-match-form').on('submit','.new_match', function(event){
     event.preventDefault()
 
     url = this.action

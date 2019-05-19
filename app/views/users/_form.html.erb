@@ -12,7 +12,7 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
     <% else %>
-      Email: Set Through Facebook
+      Email: <%= @user.email %> - Set Through Facebook
     <% end %>
   </p>
   <p>
