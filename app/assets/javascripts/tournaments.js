@@ -116,7 +116,7 @@ Match.prototype.convertRoundName = function() {
 
 Match.prototype.singleMatchHTML = function() {
   return(`
-    <h2>${this.round}</h2>
+    <h2 class="inline">${this.round}</h2> <a href="http://localhost:3000/matches/${this.id}/edit">Edit Match</a> <a rel="nofollow" data-method="delete" href="/matches/${this.id}">Delete Match</a>
     <p><b>vs:</b> ${this.opponent.first_name} ${this.opponent.last_name}</p>
     <p><b>Date:</b> ${this.date}</p>
     <p><b>Time:</b> ${this.time}</p>
