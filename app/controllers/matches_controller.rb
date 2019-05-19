@@ -32,7 +32,7 @@ class MatchesController < ApplicationController
   def update
     @match.update(match_params)
     @match.update_user_record
-    redirect_to match_path(@match)
+    redirect_to tournament_path(@match.tournament)
   end
 
   def destroy

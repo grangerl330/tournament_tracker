@@ -19,7 +19,7 @@ function onClickAddMatch(){
 }
 
 function onClickMatchLink(){
-  $('.match-link').on('click', function(event){
+  $('#all-match-display').on('click', 'a', function(event){
     event.preventDefault()
 
     $.ajax({
@@ -66,7 +66,7 @@ function onClickShowAllMatches() {
 }
 
 function onSubmitAddNewMatchForm(){
-  $('.edit_match').on('submit', function(event){
+  $('.new_match').on('submit', function(event){
     event.preventDefault()
 
     url = this.action
