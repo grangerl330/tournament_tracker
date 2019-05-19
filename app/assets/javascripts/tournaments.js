@@ -32,6 +32,8 @@ function onClickMatchLink(){
       var match = new Match(data)
       match.convertRoundName()
 
+      match.convertTime()
+
       var matchHTML = match.singleMatchHTML()
       var showMatchesHref = match.showAllMatchesHref()
 
@@ -126,4 +128,10 @@ Match.prototype.singleMatchHTML = function() {
 
 Match.prototype.showAllMatchesHref = function(){
   return (`http://localhost:3000/tournaments/${this.tournament.id}`)
+}
+
+Match.prototype.convertTime = function(){
+  var d = new Date(this.time)
+  var time = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'UTC' })
+  this.time = time
 }
