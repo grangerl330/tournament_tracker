@@ -8,6 +8,7 @@ function listenForClickTournamentsPage() {
   onClickShowAllMatches()
   onClickAddMatch()
   onSubmitAddNewMatchForm()
+  onClickHideForm()
 }
 
 function onClickAddMatch(){
@@ -89,6 +90,15 @@ function editShowAllMatchesLink(href){
   $('#show-matches-link').attr("href", href)
   $('#show-matches-link').attr("style", "")
   $('#show-matches-link').text("Show All Matches")
+}
+
+function onClickHideForm(){
+  $('#hide-form').on('click', function(event){
+    event.preventDefault()
+
+    $('#new-match-form').attr("style", "display:none")
+    $('#add-match').attr("style", "")
+  })
 }
 
 class Match {
